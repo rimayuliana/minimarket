@@ -7,13 +7,20 @@ import java.util.HashMap;
 public class Gudang {
     String kode;
     int stok;
-    Calendar cal = Calendar.getInstance();
+//    Calendar cal = Calendar.getInstance();
+    int cal;
     String keterangan;
     private HashMap<Integer, Produk> arrProduk = new HashMap<>();
 
     /*
          tambah Produk ke arrProduk
      */
+    public Gudang(String kode, int stok, int cal, String keterangan){
+        this.kode=kode;
+        this.stok=stok;
+        this.cal=cal;
+        this.keterangan=keterangan;
+    }
 
     public void addStock(Produk itm) {
 
@@ -43,30 +50,12 @@ public class Gudang {
 
 
 
-    /*  jika method main() ini dijalankan hasilnya:
-
-        Print isi Gudang:
-        Id:1
-        Nama:Nasi Goreng
-        Harga produksi:5
-        Harga jual:10
-        Id:2
-        Nama:Soto ayam
-        Harga produksi:3
-        Harga jual:7
-        Id:3
-        Nama:Air mineral
-        Harga produksi:2
-        Harga jual:4
-
-
-    */
-
+   
     public static void main(String[] args) {
         //testing, tambah Gudang (nantinya bisa dari database)
         System.out.println("**** test class Gudang **** ");
 
-        Gudang m = new Gudang();
+        Gudang m = new Gudang("B123",50,03-04-2017,"Minuman");
         m.isiGudang();
         System.out.println("===> Testing Print isi Gudang:");
         m.print();
@@ -74,10 +63,10 @@ public class Gudang {
         System.out.println("===> Testing cari Produk:");
         Produk itm = m.cari(2); //cari Produk 2
         if (itm != null) {
-            System.out.println("DProdukukan!");
+            System.out.println("Di Produksikan!");
             itm.print(); //hasilnya print Produk 2
         } else {
-            System.out.println("Tidak DProdukukan");
+            System.out.println("Tidak DiProduksikan");
         }
 
     }
